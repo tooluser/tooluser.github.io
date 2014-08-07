@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tooluser]]></title>
+  <link href="http://tooluser.github.io/atom.xml" rel="self"/>
+  <link href="http://tooluser.github.io/"/>
+  <updated>2014-08-07T08:14:34-07:00</updated>
+  <id>http://tooluser.github.io/</id>
+  <author>
+    <name><![CDATA[Tooluser]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How agile programming techniques saved my marriage]]></title>
+    <link href="http://tooluser.github.io/blog/2014/05/06/how-agile-programming-techniques-saved-my-marriage/"/>
+    <updated>2014-05-06T08:50:44-07:00</updated>
+    <id>http://tooluser.github.io/blog/2014/05/06/how-agile-programming-techniques-saved-my-marriage</id>
+    <content type="html"><![CDATA[<p>Most developers think of Agile techniques, (namely development methods based on iterative and incremental development) as pertinent only to software engineering.</p>
+
+<!-- more -->
+
+
+<p>Seriously, you people will read anything about Agile programming.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linking non-sibling libraries in an Xcode 5 workspace]]></title>
+    <link href="http://tooluser.github.io/blog/2014/01/30/linking-non-sibling-libraries-in-an-xcode-5-workspace/"/>
+    <updated>2014-01-30T17:06:04-08:00</updated>
+    <id>http://tooluser.github.io/blog/2014/01/30/linking-non-sibling-libraries-in-an-xcode-5-workspace</id>
+    <content type="html"><![CDATA[<p>It would be interesting to examine the history of software engineering via solely the history of the process of layering build systems atop each other.</p>
+
+<!--more-->
+
+
+<p>Like any decent human being, your third-party libraries are in a subdirectory in your project folder.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MyProject
+</span><span class='line'>  /Model
+</span><span class='line'>  /UI
+</span><span class='line'>  /Externals
+</span><span class='line'>      /SomeLibrary
+</span><span class='line'>  /...</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&rsquo;ve thus configured your project header import paths, library linking paths, and such with references to <code>./Externals/</code>.</p>
+
+<p><img class="right" src="http://tooluser.github.io/images/posts/xcode-5-workspaces.png" width="400" title="Xcode 5 workspaces" alt="blah">Now, along comes Xcode 5 with its fancy new-fangled &lsquo;workspaces&rsquo;. If you&rsquo;re not familiar, <a href="https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Workspace.html">Xcode 5 workspaces</a> promises what every build system, ever, has promised: by adding another layer of configuration, <em>we can finally, really, make everything work</em>.</p>
+
+<p>In theory, it&rsquo;s quite snazzy. Declare your dependencies via the build phase and as long as the library is in your workspace, it will be automatically discovered and built as needed. (Supposedly, it will also properly associate header files and such, but I&rsquo;ve found that practically, one ends up needing to declare header search paths anyway.)</p>
+
+<p>The dependency analysis works well (at least as well as <code>make</code>) But it turns out that if your dependencies are anywhere but sibling folders, Xcode doesn&rsquo;t do a very good job putting build intermediates somewhere they&rsquo;re available for linking, leading to linking errors in any configuration but the command-line default one. Your build logs will show the dependencies being built, so this can be an obscure error to track down.</p>
+
+<p>The solution is simple: manually include <code>${OBJROOT}/UninstalledProducts</code> as a library search path in the necessary schemas and you&rsquo;re golden.</p>
+
+<p>Hat tip to <a href="http://stackoverflow.com/questions/6400800/managing-static-library-project-as-a-module-like-framework-on-ios-project-in-xco/6400872#comment30133261_6400872">Eonil at StackOverflow</a> for the reference to a similar problem in an earlier version of Xcode.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The single most useful Objective-C reference]]></title>
+    <link href="http://tooluser.github.io/blog/2014/01/30/the-single-most-useful-objective-c-reference/"/>
+    <updated>2014-01-30T16:59:25-08:00</updated>
+    <id>http://tooluser.github.io/blog/2014/01/30/the-single-most-useful-objective-c-reference</id>
+    <content type="html"><![CDATA[<p>I probably reference <a href="http://fuckingblocksyntax.com/">this</a> more than any single other Objective-C reference.</p>
+]]></content>
+  </entry>
+  
+</feed>
