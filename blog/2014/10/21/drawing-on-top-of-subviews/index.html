@@ -1,58 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Tooluser]]></title>
-  <link href="http://tooluser.github.io/atom.xml" rel="self"/>
-  <link href="http://tooluser.github.io/"/>
-  <updated>2015-04-27T12:57:34-07:00</updated>
-  <id>http://tooluser.github.io/</id>
-  <author>
-    <name><![CDATA[Tooluser]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Drawing on top of subviews - Tooluser</title>
+  <meta name="author" content="Tooluser">
 
   
-  <entry>
-    
-    <title type="html"><![CDATA[Lab coats and toy problems]]></title>
-    <link href="http://tooluser.github.io/blog/2015/04/27/lab-coats-and-toy-problems/"/>
-    
-    <updated>2015-04-27T12:21:23-07:00</updated>
-    <id>http://tooluser.github.io/blog/2015/04/27/lab-coats-and-toy-problems</id>
-    
-    <content type="html"><![CDATA[<p>Someone clever once said that modern analytical philosophers would wear lab coats to work if they thought they could get away with it. I think something similar could be said about software engineers. So many of our hiring practices revolve around toy problems and algorithmic complexity — the things we’re all impressed by from our experience getting degrees (or from not getting a degree). But we’re putting on airs when we do that. What we do in our careers is much more of a skilled trade than mathematically complex or scientifically rigorous; it&rsquo;s much more akin to skilled carpentry than it is to structural engineering.<!-- more --></p>
-
-<p>For example, real algorithm <em>design</em> is really a small part of the work we do. I mean this in the strong sense. Yes, we design algorithms, and yes, you can’t be an idiot about algorithmic complexity. What I mean is by &lsquo;strong sense&rsquo; is developing novel structures and extending the art and science. They happen, but they happen via weeks of research and experimentation into existing algorithms, not in an hour at a whiteboard. Otherwise, we need to do a complexity analysis of a process infrequently.</p>
-
-<p>On the other hand, every day, I design code that has to be non-astonishing and integrate with large architectures, be flexible but realistic in its goals, and be modifiable in the long term by myself and others. Mostly, implementing code is about modeling a problem well and selecting good common patterns. This is the opposite of what a good CS degree teaches and what a &lsquo;toy problem&rsquo; interview problem examines.</p>
-
-<p>You don’t evaluate the real day-to-day skills of our profession with toy problems. Yes, an excellent engineer will usually make a good showing of any toy problem — but plenty of very good engineers won’t, on that particular problem. But worse, plenty of people who will do well on toy problems will then utterly fall apart in the long term problem of building systems their other engineers can interact with. I think toy problems make us feel scientific, but are a very bad way to actually judge candidates.</p>
-
-<p>Better I think is real code review. Show a project you have built, and walk a panel though it. Encourage conversations about trade-offs; make it a non-confrontational (another huge problem w/ toy problem style questions — they’re exams. I say this as the kid who loved exams. They are bad for this goals; they don&rsquo;t mimic how we will want to work for real) and conversational. Use it as an opportunity to dig deeper as appropriate to the target skill level (“When would you not use a protocol? What about delegation instead of blocks here? You used a mutable array; have you used the new mutable ordered sets? etc.”).</p>
-
-<p>People are more comfortable when they’re explaining something they know solid — and you can see their skill better. (The argument that you ‘want to shake people off their feet’ and ’see how they think outside the box’ is both sadistic and unilluminating; our work is rarely shaking, or discomforting, nor does it usually benefit from stress. The rare stress situations are usually failures of systems we built and know, rather than random exam questions.)</p>
-
-<p>I analogize here from somewhere that hiring is similarly very expensive: the academic world. Interviews are not run as exams; you read the work people have done and let them talk about it, asking them questions. They know there very well that exams are brittle.</p>
-
-<p>I think toy problems are useful if you have a huge pool of incoming engineers and you really want only CS degree types &ndash; when you could actually benefit from the solo genius generating cleverness in a silo. There&rsquo;s a place for that. Google, certainly, can benefit from it. They also have a massive scoring database for reviewers AND candidates, so they can do some amazing math and both calibrate and improve their process with it. Most companies are too small and do too few hires for numerical analysis to overcome statistical noise.</p>
-
-<p>What sort of project should be used? A number of people suggest take-home work. Implementing take-home problems is perhaps acceptable for very junior people — but no one advanced will have the time, and projects of scale aren’t comparable to toy projects, due to their infrastructure, testing, etc. Complexity emerges in real systems, not in take-home problems. Better is a real project that has had to engage with messy reality.</p>
-
-<p>Such project walkthroughs need not reveal trade secrets etc. No code needs to leave the candidate’s laptop, either. A whiteboard and a projector screen will suffice. The candidate can choose what to demo, and if reasonable flexibility is given</p>
-]]></content>
-    
-  </entry>
+  <meta name="description" content="How do you implement a custom UIView class that needs to draw over its contents?
+A quick tutorial that uses custom CoreGraphics, a customizable &hellip;">
   
-  <entry>
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tooluser.github.io/blog/2014/10/21/drawing-on-top-of-subviews">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tooluser" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+  
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner">
+	<div class="header-title"><a href="/">Tooluser</a></div>
+
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tooluser.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+  
     
-    <title type="html"><![CDATA[Drawing on top of subviews]]></title>
-    <link href="http://tooluser.github.io/blog/2014/10/21/drawing-on-top-of-subviews/"/>
+      <h1 class="entry-title">Drawing on Top of Subviews</h1>
     
-    <updated>2014-10-21T06:18:51-07:00</updated>
-    <id>http://tooluser.github.io/blog/2014/10/21/drawing-on-top-of-subviews</id>
+  
     
-    <content type="html"><![CDATA[<p>How do you implement a custom UIView class that needs to draw over its contents?
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-21T06:18:51-07:00" pubdate data-updated="true">Oct 21<sup>st</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>How do you implement a custom UIView class that needs to draw over its contents?
 A quick tutorial that uses custom CoreGraphics, a customizable content view, and a neat trick to preserve the drawing hierarchy and your sanity.</p>
 
 <!--more -->
@@ -60,11 +101,11 @@ A quick tutorial that uses custom CoreGraphics, a customizable content view, and
 
 <p>Say you need a &lsquo;bubble&rsquo; view wrapped around custom view. The bubble wants to resize around whatever content it has, but keeps a simple tail that points to some other UI element.</p>
 
-<p><img class="center" src="http://tooluser.github.io/images/drawing-on-top-bubble.png" width="300"></p>
+<p><img class="center" src="/images/drawing-on-top-bubble.png" width="300"></p>
 
 <p>The tricky bit, of course, is here:</p>
 
-<p><img class="center" src="http://tooluser.github.io/images/drawing-on-top-bubble-arrow.png" width="300"></p>
+<p><img class="center" src="/images/drawing-on-top-bubble-arrow.png" width="300"></p>
 
 <p>where the &lsquo;tail&rsquo; connects to the content. You&rsquo;ve got to draw it manually; you can&rsquo;t fake it with an image, because the content view is going to change size and background color. Drawing only part of it and using an image for another part is unsatisfactory, because you&rsquo;re never going to get the point sizes to match exactly with CoreGraphics&#8217; drawing style.</p>
 
@@ -76,8 +117,8 @@ A quick tutorial that uses custom CoreGraphics, a customizable content view, and
 
 <p>These images from SparkInspector show the drawing order, and hint at the solution.</p>
 
-<p><img class="center" src="http://tooluser.github.io/images/drawing-on-top-order-left.png" width="300">
-<img class="center" src="http://tooluser.github.io/images/drawing-on-top-order-right.png" width="300"></p>
+<p><img class="center" src="/images/drawing-on-top-order-left.png" width="300">
+<img class="center" src="/images/drawing-on-top-order-right.png" width="300"></p>
 
 <h3>How to draw above your own subviews?</h3>
 
@@ -307,83 +348,124 @@ A quick tutorial that uses custom CoreGraphics, a customizable content view, and
 <h4>4: Fill</h4>
 
 <p>For the fill, we begin one <code>borderWidth</code> above the tail&rsquo;s left point, then draw the same triangle, finishing similarly one <code>borderWidth</code> above the right point. This ensures we will draw over the BubbleView&rsquo;s border and create a seamless line.</p>
-]]></content>
-    
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    
-    <title type="html"><![CDATA[How agile programming techniques saved my marriage]]></title>
-    <link href="http://tooluser.github.io/blog/2014/05/06/how-agile-programming-techniques-saved-my-marriage/"/>
-    
-    <updated>2014-05-06T08:50:44-07:00</updated>
-    <id>http://tooluser.github.io/blog/2014/05/06/how-agile-programming-techniques-saved-my-marriage</id>
-    
-    <content type="html"><![CDATA[<p>Most developers think of Agile techniques, (namely development methods based on iterative and incremental development) as pertinent only to software engineering.</p>
 
-<!-- more -->
+<span class="byline author vcard">Posted by <span class="fn">Tooluser</span></span>
+
+      
 
 
-<p>Seriously, you people will read anything about Agile programming.</p>
-]]></content>
-    
-  </entry>
+
+
+
+
+
+
   
-  <entry>
+
+
+<time datetime="2014-10-21T06:18:51-07:00" pubdate data-updated="true">Oct 21<sup>st</sup>, 2014</time>
+      
+
+
+    </p>
     
-    <title type="html"><![CDATA[Linking non-sibling libraries in an Xcode 5 workspace]]></title>
-    <link href="http://tooluser.github.io/blog/2014/01/30/linking-non-sibling-libraries-in-an-xcode-5-workspace/"/>
-    
-    <updated>2014-01-30T17:06:04-08:00</updated>
-    <id>http://tooluser.github.io/blog/2014/01/30/linking-non-sibling-libraries-in-an-xcode-5-workspace</id>
-    
-    <content type="html"><![CDATA[<p>It would be interesting to examine the history of software engineering via solely the history of the process of layering build systems atop each other.</p>
-
-<!--more-->
-
-
-<p>Like any decent human being, your third-party libraries are in a subdirectory in your project folder.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>MyProject
-</span><span class='line'>  /Model
-</span><span class='line'>  /UI
-</span><span class='line'>  /Externals
-</span><span class='line'>      /SomeLibrary
-</span><span class='line'>  /...</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You&rsquo;ve thus configured your project header import paths, library linking paths, and such with references to <code>./Externals/</code>.</p>
-
-<p><img class="right" src="http://tooluser.github.io/images/posts/xcode-5-workspaces.png" width="400" title="Xcode 5 workspaces" alt="blah">Now, along comes Xcode 5 with its fancy new-fangled &lsquo;workspaces&rsquo;. If you&rsquo;re not familiar, <a href="https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Workspace.html">Xcode 5 workspaces</a> promises what every build system, ever, has promised: by adding another layer of configuration, <em>we can finally, really, make everything work</em>.</p>
-
-<p>In theory, it&rsquo;s quite snazzy. Declare your dependencies via the build phase and as long as the library is in your workspace, it will be automatically discovered and built as needed. (Supposedly, it will also properly associate header files and such, but I&rsquo;ve found that practically, one ends up needing to declare header search paths anyway.)</p>
-
-<p>The dependency analysis works well (at least as well as <code>make</code>) But it turns out that if your dependencies are anywhere but sibling folders, Xcode doesn&rsquo;t do a very good job putting build intermediates somewhere they&rsquo;re available for linking, leading to linking errors in any configuration but the command-line default one. Your build logs will show the dependencies being built, so this can be an obscure error to track down.</p>
-
-<p>The solution is simple: manually include <code>${OBJROOT}/UninstalledProducts</code> as a library search path in the necessary schemas and you&rsquo;re golden.</p>
-
-<p>Hat tip to <a href="http://stackoverflow.com/questions/6400800/managing-static-library-project-as-a-module-like-framework-on-ios-project-in-xco/6400872#comment30133261_6400872">Eonil at StackOverflow</a> for the reference to a similar problem in an earlier version of Xcode.</p>
-]]></content>
-    
-  </entry>
+      <div class="sharing">
   
-  <entry>
-    
-    <title type="html"><![CDATA[The single most useful Objective-C reference]]></title>
-    <link href="http://tooluser.github.io/blog/2014/01/30/the-single-most-useful-objective-c-reference/"/>
-    
-    <updated>2014-01-30T16:59:25-08:00</updated>
-    <id>http://tooluser.github.io/blog/2014/01/30/the-single-most-useful-objective-c-reference</id>
-    
-    <content type="html"><![CDATA[<p>I probably reference <a href="http://fuckingblocksyntax.com/">this</a> more than any single other Objective-C reference.</p>
-]]></content>
-    
-  </entry>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tooluser.github.io/blog/2014/10/21/drawing-on-top-of-subviews/" data-via="" data-counturl="http://tooluser.github.io/blog/2014/10/21/drawing-on-top-of-subviews/" >Tweet</a>
   
-</feed>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/05/06/how-agile-programming-techniques-saved-my-marriage/" title="Previous Post: How agile programming techniques saved my marriage">&laquo; How agile programming techniques saved my marriage</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/04/27/lab-coats-and-toy-problems/" title="Next Post: Lab coats and toy problems">Lab coats and toy problems &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/04/27/lab-coats-and-toy-problems/">Lab coats and toy problems</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/21/drawing-on-top-of-subviews/">Drawing on top of subviews</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/06/how-agile-programming-techniques-saved-my-marriage/">How agile programming techniques saved my marriage</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/30/linking-non-sibling-libraries-in-an-xcode-5-workspace/">Linking non-sibling libraries in an Xcode 5 workspace</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/01/30/the-single-most-useful-objective-c-reference/">The single most useful Objective-C reference</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 -  Tooluser <br/>
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> + <a href="https://github.com/ioveracker/mnml">mnml</a>.
+	  
+  </span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
